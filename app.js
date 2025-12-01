@@ -1,5 +1,8 @@
 // URL base de la API - Ajusta el puerto si es necesario
-const API_BASE_URL = 'http://localhost:3000/api/books';
+const API_BASE_URL = window.location.hostname === 'localhost' || 
+                     window.location.hostname === '127.0.0.1'
+  ? 'http://localhost:3000/api/books'
+  : 'https://backend-prueba-1-3xb7.onrender.com/api/books';
 
 // Función para mostrar/ocultar secciones
 function mostrarSeccion(seccion, btn) {
@@ -366,4 +369,5 @@ document.querySelector('.menu-btn[onclick="mostrarSeccion(\'consulta\', this)"]'
         consultarTodos();
     }, 100);
 });
+
 
